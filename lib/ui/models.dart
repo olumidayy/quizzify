@@ -585,7 +585,6 @@ List res = qs['results'];
 
 getQuestions(){
   List<Question> ques = List.from(res.map((result) => Question.fromMap(result)));
-  print(ques);
   return ques;
 }
 

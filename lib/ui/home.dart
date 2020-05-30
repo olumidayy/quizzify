@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'question_page.dart';
 
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -44,7 +45,9 @@ class Home extends StatelessWidget{
             padding: const EdgeInsets.all(28.0),
             child: RaisedButton(
               color: Colors.black,
-              onPressed: (){},
+              onPressed: (){
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => QuestionPage()));
+              },
               child: Text(
                 'Start Quiz',
                 style: GoogleFonts.raleway(
