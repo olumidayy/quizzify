@@ -23,7 +23,7 @@ class _QuestionPageState extends State<QuestionPage> {
     Question question = questions[index];
     print(question.correctAnswer);
     List options = question.incorrectAnswers + [question.correctAnswer];
-    // options.shuffle();
+    options.shuffle();
     return Scaffold(
         body: ListView(
       children: <Widget>[

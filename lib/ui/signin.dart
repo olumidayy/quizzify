@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import './../auth/auth.dart';
-// import 'home.dart';
+import 'home.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -17,7 +17,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.deepPurple[900],
+        backgroundColor: Colors.white,
         body: SafeArea(
           child: ListView(
             children: <Widget>[
@@ -29,7 +29,7 @@ class _SignInState extends State<SignIn> {
                   'Sign In',
                   style: GoogleFonts.raleway(
                     textStyle: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         letterSpacing: .5,
                         fontWeight: FontWeight.bold,
                         fontSize: 35),
@@ -47,7 +47,7 @@ class _SignInState extends State<SignIn> {
                   },
                   decoration: InputDecoration(
                       hintText: ' email',
-                      hintStyle: GoogleFonts.poppins(color: Colors.white, fontSize: 12)),
+                      hintStyle: GoogleFonts.poppins(color: Colors.black, fontSize: 12)),
                 ),
               ),
               Padding(
@@ -61,7 +61,7 @@ class _SignInState extends State<SignIn> {
                   validator: (value) => value.isEmpty ? 'please fill' : null,
                   decoration: InputDecoration(
                       hintText: ' password..',
-                      hintStyle: GoogleFonts.poppins(color: Colors.white, fontSize: 12)),
+                      hintStyle: GoogleFonts.poppins(color: Colors.black, fontSize: 12)),
                   obscureText: true,
                 ),
               ),
@@ -72,17 +72,17 @@ class _SignInState extends State<SignIn> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(28.0, 8, 28, 8),
                 child: RaisedButton(
-                  color: Colors.white,
+                  color: Colors.blueAccent,
                   onPressed: ()async{
-                    // var user = await auth.signInWithEmail(email, password);
-                    // Navigator.pushReplacement(context,
-                    //     MaterialPageRoute(builder: (context) => Home(user)));
+                    var user = await auth.signInWithEmail(email, password);
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => Home(user: user)));
                   },
                   child: Text(
                     'Sign In',
                     style: GoogleFonts.raleway(
                       textStyle: TextStyle(
-                          color: Colors.deepPurple[900],
+                          color: Colors.white,
                           letterSpacing: .5,
                           fontSize: 17.5),
                     ),
@@ -92,20 +92,20 @@ class _SignInState extends State<SignIn> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(28.0, 8, 28, 8),
                 child: RaisedButton(
-                  color: Colors.white,
+                  color: Colors.blueAccent,
                   onPressed: ()async{
-                    // var user = await auth.loginWithGoogle();
-                    // if(user != null){
-                    //   Navigator.pushReplacement(context,
-                    //       MaterialPageRoute(builder: (context) => Home(user)));
-                    // }
+                    var user = await auth.loginWithGoogle();
+                    if(user != null){
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => Home(user: user)));
+                    }
                   },
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text("Sign In with Google", style: TextStyle(color: Colors.deepPurple[900], fontWeight: FontWeight.normal)),
+                        Text("Sign In with Google", style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal)),
                         SizedBox(width: 10),
-                        FaIcon(FontAwesomeIcons.google)
+                        FaIcon(FontAwesomeIcons.google, color: Colors.black.withOpacity(0.56))
                        ]
                   )
                 ),
@@ -113,9 +113,9 @@ class _SignInState extends State<SignIn> {
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Don't yet have an account?", style: TextStyle(color: Colors.white.withOpacity(0.45))),
+                    Text("Don't yet have an account?", style: TextStyle(color: Colors.black.withOpacity(0.45))),
                     SizedBox(width: 10),
-                    Text("Sign Up", style: TextStyle(color: Colors.white))
+                    Text("Sign Up", style: TextStyle(color: Colors.black))
                   ]
               )
             ],

@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'question_page.dart';
 import 'package:direct_select/direct_select.dart';
 import 'models.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatefulWidget {
+  final FirebaseUser user;
+
+  const Home({Key key, this.user}) : super(key: key);
   @override
   _HomeState createState() => _HomeState();
 }
@@ -52,7 +56,20 @@ class _HomeState extends State<Home> {
                   color: Colors.black,
                   letterSpacing: .5,
                   fontWeight: FontWeight.bold,
-                  fontSize: 35),
+                  fontSize: 31,)
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 28.0),
+          child: Text(
+            '${widget.user != null ? widget.user.email : ''}',
+            style: GoogleFonts.raleway(
+              textStyle: TextStyle(
+                  color: Colors.black,
+                  letterSpacing: .5,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 21,)
             ),
           ),
         ),

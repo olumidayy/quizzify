@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'home.dart';
 import 'signin.dart';
 import 'question_page.dart';
+import 'package:share/share.dart';
 
 class Result extends StatelessWidget {
   final int score, total;
@@ -120,11 +121,7 @@ class Result extends StatelessWidget {
             children: <Widget>[
               GestureDetector(
                 onTap: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              QuestionPage(questions: questions)));
+                  Share.share('I just scored $percent% on quizzify!', subject: 'Quizzify');
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
