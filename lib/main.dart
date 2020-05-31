@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import './ui/home.dart';
-import './ui/question_page.dart';
+// import './ui/question_page.dart';
 
 void main() {
 //  print(getQuestions());
@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       home: Home(),
     );
   }

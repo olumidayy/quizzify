@@ -93,7 +93,7 @@ class _HomeState extends State<Home> {
               });
             },
             items: _buildDifficulties()),
-        SizedBox(height: 100),
+        SizedBox(height: 40),
         Padding(
           padding: const EdgeInsets.all(28.0),
           child: RaisedButton(
